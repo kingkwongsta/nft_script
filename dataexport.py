@@ -28,7 +28,7 @@ for item in addresses:
         response = requests.get(url, headers=headers)
         data = response.json()
         data["date_pulled"] = datetime.datetime.now().strftime("%Y-%m-%d")
-        with open(f'data_export/{item["name"]}.json', 'w') as file:
+        with open(f'data_export/{datetime.datetime.now().strftime("%Y-%m-%d")}-{item["name"]}.json', 'w') as file:
             json.dump(data, file)
             print(f'File {item["name"]}.json was successfully created.')
     except Exception as error:
