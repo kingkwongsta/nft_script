@@ -1,3 +1,6 @@
+##TODO
+## have mongo_import run after this script executes
+
 import requests
 import json
 import datetime
