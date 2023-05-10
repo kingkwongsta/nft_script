@@ -30,6 +30,6 @@ for item in addresses:
         data["date_pulled"] = datetime.datetime.now().strftime("%Y-%m-%d")
         with open(f'data_export/{datetime.datetime.now().strftime("%Y-%m-%d")}-{item["name"]}.json', 'w') as file:
             json.dump(data, file)
-            print(f'File {item["name"]}.json was successfully created.')
+            print(f'File {datetime.datetime.now().strftime("%Y-%m-%d")}-{item["name"]}.json was successfully created.')
     except Exception as error:
         print(f'Error creating file {item["name"]}.json: {str(error)}')
