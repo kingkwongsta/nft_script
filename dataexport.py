@@ -1,16 +1,13 @@
 import requests
 import json
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 headers = {
     "accept": "application/json",
-    "Authorization": "671f012a-921d-43d6-9b84-2a2421525c1f"
+    "Authorization": os.getenv("NFTPORT_API")
 }
-
-# addresses = [{"name": "MAYC", "address": "0x60e4d786628fea6478f785a6d7e704777c86a7c6"},
-# {"name": "BAYC", "address": "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"},
-# {"name": "Azuki", "address": "0xed5af388653567af2f388e6224dc7c4b3241c544"},
-# {"name": "Moonbirds", "address": "0x23581767a106ae21c074b2276d25e5c3e136a68b"}]
 
 topURL = url = "https://api.nftport.xyz/v0/contracts/top?page_size=1&page_number=1&period=24h&order_by=volume&chain=ethereum"
 
