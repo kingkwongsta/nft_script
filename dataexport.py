@@ -9,16 +9,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-headers = {
+HEADERS = {
         "accept": "application/json",
         "Authorization": os.getenv("NFTPORT_API")
     }
 
-def get_top_addresses():
+def get_top_addresses(numNFTS):
     topURL = f'https://api.nftport.xyz/v0/contracts/top?page_size={numNFTS}&page_number=1&period=24h&order_by=volume&chain=ethereum'
 
     ##API CALL TO GET TOP X# of NFT ADDRESSESS
-    response = requests.get(topURL, headers=headers)
+    response = requests.get(topURL, headers=HEADERS)
     data = response.json()
     addresses = data["contracts"]
     return addresses
@@ -26,15 +26,13 @@ def get_top_addresses():
 
 def download_top_nfts(numNFTS):
     
-
-   
-
+    addresses = get_top_addresses(numNFTS)
     json_files = []
 
     for item in addresses:
         try:
             url = f'https://api.nftport.xyz/v0/nfts/{item["contract_address"]}?chain=ethereum&page_number=1&page_size=50&include=metadata&include=file_information&include=rarity&include=last_sale_price&include=all&refresh_metadata=false'
-            response = requests.get(url, headers=headers)
+            response = requests.get(url, headers=HEADERS)
             data = response.json()
             data["date_pulled"] = datetime.datetime.now().strftime("%Y-%m-%d")
             filename = f'{datetime.datetime.now().strftime("%Y-%m-%d")}-{item["name"]}.json'
@@ -48,4 +46,4 @@ def download_top_nfts(numNFTS):
     return json_files
 
 
-download_top_nfts(1)
+download_top_nfts(5)
