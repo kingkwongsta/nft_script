@@ -2,8 +2,8 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-db = "test"
-collection = "test2"
+db = "web3"
+collection = "nft_top_eth"
 
 os.chdir('./data_export')
 
