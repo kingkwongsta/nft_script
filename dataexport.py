@@ -15,10 +15,10 @@ HEADERS = {
     }
 
 def get_top_addresses(numNFTS):
-    topURL = f'https://api.nftport.xyz/v0/contracts/top?page_size={numNFTS}&page_number=1&period=24h&order_by=volume&chain=ethereum'
+    top_url = f'https://api.nftport.xyz/v0/contracts/top?page_size={numNFTS}&page_number=1&period=24h&order_by=volume&chain=ethereum'
 
     ##API CALL TO GET TOP X# of NFT ADDRESSESS
-    response = requests.get(topURL, headers=HEADERS)
+    response = requests.get(top_url, headers=HEADERS)
     data = response.json()
     addresses = data["contracts"]
     return addresses
@@ -44,6 +44,3 @@ def download_top_nfts(numNFTS):
             print(f'Error creating file {item["name"]}.json: {str(error)}')
 
     return json_files
-
-
-download_top_nfts(5)
