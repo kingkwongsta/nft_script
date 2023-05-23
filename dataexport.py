@@ -5,7 +5,6 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-
 HEADERS = {
         "accept": "application/json",
         "Authorization": os.getenv("NFTPORT_API")
