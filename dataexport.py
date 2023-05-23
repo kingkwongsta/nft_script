@@ -11,6 +11,7 @@ HEADERS = {
         "Authorization": os.getenv("NFTPORT_API")
     }
 
+##function to get the top number of NFTs
 def get_top_addresses(numNFTS):
     top_url = f'https://api.nftport.xyz/v0/contracts/top?page_size={numNFTS}&page_number=1&period=24h&order_by=volume&chain=ethereum'
 

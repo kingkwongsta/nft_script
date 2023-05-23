@@ -1,13 +1,12 @@
-
-
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
-
 def import_to_mongodb(db, collection):
+    ## move to folder to run terminal commands
     os.chdir('./data_export')
 
+    ## for every file in the directory, check if a json file, then run monogoimport command
     for filename in os.listdir("."):
         if filename.endswith(".json"):
             print(f'****** {filename} ******')
