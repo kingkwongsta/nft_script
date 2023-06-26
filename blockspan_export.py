@@ -47,3 +47,5 @@ def download_top_nfts(numNFTS):
             print(f'Error creating file {item["name"]}.json: {str(error)}')
 
     return json_files
+
+    download_top_nfts(5)
