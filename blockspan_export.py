@@ -21,7 +21,9 @@ def get_top_addresses(numNFTS):
     ##API CALL TO GET TOP X# of NFT ADDRESSESS
     response = requests.get(top_url, headers=NFTPORT_HEADERS)
     data = response.json()
-    addresses = data["contracts"]
+    addresses = []
+    for item in data["contracts"]:
+        addresses.append(item["contract_address"])
     return addresses
 
 
