@@ -31,12 +31,10 @@ def download_top_nfts(numNFTS):
     
     addresses = get_top_addresses(numNFTS)
     json_files = []
-    
-
 
     for item in addresses:
         try:
-            url = f'https://api.blockspan.com/v1/nfts/contract/{item["contract_address"]}?chain=eth-main&include_current_owners=true&include_recent_price=true&page_size=50'
+            url = f'https://api.blockspan.com/v1/nfts/contract/{item}?chain=eth-main&include_current_owners=true&include_recent_price=true&page_size=50'
             response = requests.get(url, headers=BLOCKSPAN_HEADERS)
             data = response.json()
             data["date_pulled"] = datetime.datetime.now().strftime("%Y-%m-%d")
