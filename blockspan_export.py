@@ -3,6 +3,8 @@ import json
 import datetime
 import os
 from dotenv import load_dotenv
+from eth_address import top_nft
+
 load_dotenv()
 
 NFTPORT_HEADERS = {
@@ -21,20 +23,18 @@ def get_top_addresses(numNFTS):
     ##API CALL TO GET TOP X# of NFT ADDRESSESS
     response = requests.get(top_url, headers=NFTPORT_HEADERS)
     data = response.json()
-    addresses = []
-    for item in data["contracts"]:
-        addresses.append(item["contract_address"])
+    addresses = data["contracts"]
     return addresses
 
 
 def download_top_nfts(numNFTS):
     
-    addresses = get_top_addresses(numNFTS)
     json_files = []
 
-    for item in addresses:
+    for item in top_nft:
         try:
-            url = f'https://api.blockspan.com/v1/nfts/contract/{item}?chain=eth-main&include_current_owners=true&include_recent_price=true&page_size=50'
+            url = f'https://api.blockspan.com/v1/nfts/contract/{item["address"]}?chain=eth-main&include_current_owners=true&include_recent_price=true&page_size=50'
+            print(url)
             response = requests.get(url, headers=BLOCKSPAN_HEADERS)
             data = response.json()
             data["date_pulled"] = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -45,5 +45,4 @@ def download_top_nfts(numNFTS):
                 json_files.append(filename)
         except Exception as error:
             print(f'Error creating file {item["name"]}.json: {str(error)}')
-
     return json_files

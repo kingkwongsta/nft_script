@@ -1,0 +1,10 @@
+top_nft = [{"name": "Bored Ape Yacht Club", "address":"0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D"},
+    {"name": "CryptoPunks", "address":"0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB"},
+    {"name": "Mutant Ape Yacht Club", "address":"0x60E4d786628Fea6478F785A6d7e704777c86a7c6"},
+    {"name": "Otherdeed for Otherside", "address":"0x34d85c9CDeB23FA97cb08333b511ac86E1C4E258"},
+    {"name": "Azuki", "address":"0xED5AF388653567Af2F388E6224dC7C4b3241C544"},
+    {"name": "CLONE X", "address":"0x49cF6f5d44E70224e2E23fDcdd2C053F30aDA28B"},
+    {"name": "Doodles", "address":"0x8a90CAb2b38dba80c64b7734e58Ee1dB38B8992e"},
+    {"name": "Bored Ape Kennel Club", "address":"0xba30E5F9Bb24caa003E9f2f0497Ad287FDF95623"},
+    {"name": "Moonbirds", "address":"0x23581767a106ae21c074b2276D25e5C3e136a68b"},
+    {"name": "Pudgy Penguins", "address":"0xBd3531dA5CF5857e7CfAA92426877b022e612cf8"}]
