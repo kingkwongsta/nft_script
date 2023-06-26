@@ -19,7 +19,7 @@ def get_top_addresses(numNFTS):
     top_url = f'https://api.nftport.xyz/v0/contracts/top?page_size={numNFTS}&page_number=1&period=24h&order_by=volume&chain=ethereum'
 
     ##API CALL TO GET TOP X# of NFT ADDRESSESS
-    response = requests.get(top_url, headers=HEADERS)
+    response = requests.get(top_url, headers=NFTPORT_HEADERS)
     data = response.json()
     addresses = data["contracts"]
     return addresses
@@ -35,7 +35,7 @@ def download_top_nfts(numNFTS):
     for item in addresses:
         try:
             url = f'https://api.blockspan.com/v1/nfts/contract/{item["contract_address"]}?chain=eth-main&include_current_owners=true&include_recent_price=true&page_size=50'
-            response = requests.get(url, headers=HEADERS)
+            response = requests.get(url, headers=BLOCKSPAN_HEADERS)
             data = response.json()
             data["date_pulled"] = datetime.datetime.now().strftime("%Y-%m-%d")
             filename = f'{datetime.datetime.now().strftime("%Y-%m-%d")}-{item["name"]}.json'
@@ -47,5 +47,3 @@ def download_top_nfts(numNFTS):
             print(f'Error creating file {item["name"]}.json: {str(error)}')
 
     return json_files
-
-    download_top_nfts(5)
