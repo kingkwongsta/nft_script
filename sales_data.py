@@ -21,7 +21,7 @@ def get_top_addresses(numNFTS):
     return addresses
 
 
-def download_top_nfts(numNFTS):
+def download_sales_data(numNFTS):
     
     addresses = get_top_addresses(numNFTS)
     json_files = []
