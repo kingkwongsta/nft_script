@@ -2,6 +2,7 @@ import requests
 import json
 import datetime
 import os
+import time
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -38,6 +39,7 @@ def download_sales_data(numNFTS):
                 json.dump(data, file)
                 print(f'File {filename} was successfully created.')
                 json_files.append(filename)
+            time.sleep(0.5) #add delay
         except Exception as error:
             print(f'Error creating file {item["name"]}.json: {str(error)}')
 
