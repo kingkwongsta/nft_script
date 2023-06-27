@@ -32,7 +32,7 @@ def download_top_nfts(numNFTS):
             response = requests.get(url, headers=HEADERS)
             data = response.json()
             data["date_pulled"] = datetime.datetime.now().strftime("%Y-%m-%d")
-            filename = f'{datetime.datetime.now().strftime("%Y-%m-%d")}-{item["name"]}.json'
+            filename = f'{datetime.datetime.now().strftime("%Y-%m-%d")}-{item["name"]}-collection.json'
             with open(f'data_export/{filename}', 'w') as file:
                 json.dump(data, file)
                 print(f'File {filename} was successfully created.')

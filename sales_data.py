@@ -33,7 +33,7 @@ def download_sales_data(numNFTS):
             data = response.json()
             data["name"] = item["name"]
             data["date_pulled"] = datetime.datetime.now().strftime("%Y-%m-%d")
-            filename = f'{datetime.datetime.now().strftime("%Y-%m-%d")}-{item["name"]}-sales-data.json'
+            filename = f'{datetime.datetime.now().strftime("%Y-%m-%d")}-{item["name"]}-sales.json'
             with open(f'data_export/{filename}', 'w') as file:
                 json.dump(data, file)
                 print(f'File {filename} was successfully created.')
