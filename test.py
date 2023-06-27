@@ -36,26 +36,7 @@ ALCHEMY_HEADERS = {
 
 
 
-url = "https://docs-demo.quiknode.pro/"
-5
-6payload = json.dumps({
-7  "id": 67,
-8  "jsonrpc": "2.0",
-9  "method": "qn_fetchNFTsByCollection",
-10  "params": [{
-11    "collection": "0x60E4d786628Fea6478F785A6d7e704777c86a7c6",
-12    "omitFields": [
-13      "imageUrl",
-14      "traits"
-15    ],
-16    "page": 1,
-17    "perPage": 10
-18  }]
-19})
-20headers = {
-21  'Content-Type': 'application/json'
-22}
-23
-24response = requests.request("POST", url, headers=headers, data=payload)
-25
-26print(response.text)
+url3 = "https://eth-mainnet.g.alchemy.com/nft/v2/docs-demo/getNFTsForCollection?contractAddress=0xe785E82358879F061BC3dcAC6f0444462D4b5330&withMetadata=true"
+
+response3 = requests.get(url3, headers=ALCHEMY_HEADERS)
+print(response3.text)
